@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tempahan Pusat Sumber MTAQPC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo">
+    <h1>Sistem Tempahan Pusat Sumber MTAQPC</h1>
+  </header>
+  <main>
+    <form id="booking-form">
+      <label>Nama:</label>
+      <input type="text" name="nama" required>
+
+      <label>Tarikh Tempahan:</label>
+      <input type="date" name="tarikh" required>
+
+      <label>Masa Mula:</label>
+      <input type="time" name="masa_mula" required>
+
+      <label>Masa Tamat:</label>
+      <input type="time" name="masa_tamat" required>
+
+      <label>Dewan/Bilik:</label>
+      <select name="bilik" required>
+        <option value="">-- Sila Pilih --</option>
+        <option>Dewan Tok Guru</option>
+        <option>Dewan As-Syatibiy</option>
+        <option>Bilik Seminar</option>
+        <option>Bilik ICT</option>
+        <option>Maktabah</option>
+      </select>
+
+      <label>Tujuan:</label>
+      <textarea name="tujuan" rows="3" required></textarea>
+
+      <button type="submit">Hantar Tempahan</button>
+    </form>
+
+    <div id="output"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MTAQPC. Semua Hak Terpelihara.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
