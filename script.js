@@ -10,7 +10,7 @@ masa:       document.getElementById("masaMula").value + " - " + document.getElem
 peserta:    document.getElementById("peserta").value
 };
 
-fetch("https://script.google.com/macros/s/AKfycbydTbB7AywwrNTGi55j9wIVRVsC6_BtjM9HayZJXxl9RJzkvfCsZILyGcd1jibDrVwj/exec", {
+fetch("https://script.google.com/macros/s/AKfycbzgdCVhBpkNwUJ1QWQNIttBg6IlWQURSGUsiuXuD7Ner9_Srmyr7_WkdFD0b9E5b90CWw/exec", {
 method: "POST",
 body: JSON.stringify(data),
 headers: {
