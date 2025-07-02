@@ -32,8 +32,14 @@
       <label for="tarikh">Tarikh Tempahan:</label>
       <input type="date" id="tarikh" name="tarikh" required />
 
-      <label for="masa">Masa:</label>
-      <input type="text" id="masa" name="masa" placeholder="Contoh: 8:00AM - 10:00AM" required />
+      <label for="masaMula">Masa Mula:</label>
+      <input type="time" id="masaMula" name="masaMula" required />
+
+      <label for="masaTamat">Masa Tamat:</label>
+      <input type="time" id="masaTamat" name="masaTamat" required />
+
+      <label for="peserta">Bilangan Peserta / Senarai Peserta:</label>
+      <textarea id="peserta" name="peserta" rows="3" placeholder="Contoh: 30 orang / Senarai nama..." required></textarea>
 
       <button type="submit">Hantar Tempahan</button>
     </form>
