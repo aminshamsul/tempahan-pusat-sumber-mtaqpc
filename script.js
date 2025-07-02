@@ -10,7 +10,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     peserta:    document.getElementById("peserta").value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbw3NBDlG5O_mXAOBnfnPyi7AlUAC1Vh1fZfbaAB5LXFW3N6YdqTaJ6DndaS8sRIPk0Elg/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbydTbB7AywwrNTGi55j9wIVRVsC6_BtjM9HayZJXxl9RJzkvfCsZILyGcd1jibDrVwj/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
