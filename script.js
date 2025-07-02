@@ -2,19 +2,20 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   event.preventDefault();
 
   const data = {
-    nama: document.getElementById("nama").value,
-    tujuan: document.getElementById("tujuan").value,
-    bilik: document.getElementById("bilik").value,
-    tarikh: document.getElementById("tarikh").value,
-    masa: document.getElementById("masa").value
+    nama:       document.getElementById("nama").value,
+    tujuan:     document.getElementById("tujuan").value,
+    bilik:      document.getElementById("bilik").value,
+    tarikh:     document.getElementById("tarikh").value,
+    masa:       document.getElementById("masaMula").value + " - " + document.getElementById("masaTamat").value,
+    peserta:    document.getElementById("peserta").value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbx6jByiNjjBN5lyrJnMHwvXrtd07dZt3od5d96NpSsnilld-vQaCz_uAY34N0BPtDMw8g/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbw3NBDlG5O_mXAOBnfnPyi7AlUAC1Vh1fZfbaAB5LXFW3N6YdqTaJ6DndaS8sRIPk0Elg/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   })
   .then(res => res.text())
   .then(response => {
