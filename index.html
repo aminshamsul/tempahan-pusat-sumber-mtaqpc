@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -9,44 +8,41 @@
 </head>
 <body>
   <header>
-    <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo">
-    <h1>Sistem Tempahan Pusat Sumber MTAQPC</h1>
+    <h1>Tempahan Pusat Sumber MTAQPC</h1>
   </header>
+
   <main>
     <form id="booking-form">
-      <label>Nama:</label>
-      <input type="text" name="nama" required>
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" required />
 
-      <label>Tarikh Tempahan:</label>
-      <input type="date" name="tarikh" required>
+      <label for="tujuan">Tujuan:</label>
+      <input type="text" id="tujuan" name="tujuan" required />
 
-      <label>Masa Mula:</label>
-      <input type="time" name="masa_mula" required>
-
-      <label>Masa Tamat:</label>
-      <input type="time" name="masa_tamat" required>
-
-      <label>Dewan/Bilik:</label>
-      <select name="bilik" required>
-        <option value="">-- Sila Pilih --</option>
-        <option>Dewan Tok Guru</option>
-        <option>Dewan As-Syatibiy</option>
-        <option>Bilik Seminar</option>
-        <option>Bilik ICT</option>
-        <option>Maktabah</option>
+      <label for="bilik">Pilih Bilik/Dewan:</label>
+      <select id="bilik" name="bilik" required>
+        <option value="" disabled selected>-- Sila Pilih --</option>
+        <option value="Dewan Tok Guru">Dewan Tok Guru</option>
+        <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
+        <option value="Bilik Seminar">Bilik Seminar</option>
+        <option value="Bilik ICT">Bilik ICT</option>
+        <option value="Maktabah">Maktabah</option>
       </select>
 
-      <label>Tujuan:</label>
-      <textarea name="tujuan" rows="3" required></textarea>
+      <label for="tarikh">Tarikh Tempahan:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
+
+      <label for="masa">Masa:</label>
+      <input type="text" id="masa" name="masa" placeholder="Contoh: 8:00AM - 10:00AM" required />
 
       <button type="submit">Hantar Tempahan</button>
     </form>
 
-    <div id="output"></div>
+    <div id="output" style="display: none;"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 AMINSHAMSUL. Hak Cipta Terpelihara.</p>
+    <p>&copy; 2025 MTAQPC</p>
   </footer>
 
   <script src="script.js"></script>
