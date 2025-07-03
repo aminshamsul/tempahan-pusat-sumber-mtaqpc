@@ -1,16 +1,14 @@
-/* Gaya untuk paparan borang tempahan */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #f0fdf4;
-  color: #333;
+  background: #e6fef1; /* Hijau muda */
+  color: #064e3b;
 }
 
 header {
-  background: #14532d;
-  color: white;
-  text-align: center;
+  background: #bbf7d0; /* Lebih cerah hijau */
   padding: 20px;
+  text-align: center;
 }
 
 .logo {
@@ -21,7 +19,7 @@ header {
 main {
   padding: 20px;
   max-width: 600px;
-  margin: 20px auto;
+  margin: auto;
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -38,28 +36,39 @@ label {
 }
 
 input, select, textarea, button {
-  padding: 10px;
-  margin-top: 5px;
+  padding: 8px;
+  margin-top: 4px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 button {
   margin-top: 20px;
-  background: #166534;
+  background: #10b981; /* Hijau terang */
   color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #0f5132;
+  background: #059669;
 }
 
 footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  color: #777;
+  color: #065f46;
+  background: #d1fae5;
+}
+
+.success-message {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
 }
