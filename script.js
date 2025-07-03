@@ -1,30 +1,33 @@
-document.getElementById("booking-form").addEventListener("submit", function(event) {
+// Ganti dengan endpoint NocodeAPI anda
+const endpoint = "https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1";
+
+document.getElementById("booking-form").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const data = {
-    nama:       document.getElementById("nama").value,
-    tujuan:     document.getElementById("tujuan").value,
-    bilik:      document.getElementById("bilik").value,
-    hari:       document.getElementById("hari").value,
-    tarikh:     document.getElementById("tarikh").value,
-    masa:       document.getElementById("masaMula").value + " - " + document.getElementById("masaTamat").value,
-    peserta:    document.getElementById("peserta").value
+    Nama: document.getElementById("nama").value,
+    Tujuan: document.getElementById("tujuan").value,
+    "Dewan/Bilik": document.getElementById("bilik").value,
+    Hari: document.getElementById("hari").value,
+    Tarikh: document.getElementById("tarikh").value,
+    "Masa Mula": document.getElementById("masaMula").value,
+    "Masa Tamat": document.getElementById("masaTamat").value,
+    Peserta: document.getElementById("peserta").value
   };
 
-  fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
+  fetch(endpoint, {
     method: "POST",
-    body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
-    }
+    },
+    body: JSON.stringify([Object.values(data)])
   })
-  .then(res => res.text())
-  .then(response => {
-    document.getElementById("booking-form").style.display = "none";
-    document.getElementById("output").style.display = "block";
-    document.getElementById("output").innerHTML = "<h2>Tempahan anda telah diterima!</h2><p>Terima kasih.</p>";
-  })
-  .catch(error => {
-    alert("Ralat semasa menghantar: " + error);
-  });
+    .then(response => response.json())
+    .then(result => {
+      document.getElementById("booking-form").reset();
+      document.getElementById("output").innerHTML = `<h3>Tempahan berjaya dihantar!</h3>`;
+    })
+    .catch(error => {
+      document.getElementById("output").innerHTML = `<p style="color:red;">Ralat: ${error.message}</p>`;
+    });
 });
