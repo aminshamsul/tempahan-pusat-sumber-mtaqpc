@@ -1,61 +1,52 @@
-<!DOCTYPE html>
-<html lang="ms">
+<!DOCTYPE html><html lang="ms">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tempahan Pusat Sumber MTAQ</title>
+  <title>Tempahan Pusat Sumber MTAQPC</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
-    <h1>Tempahan Pusat Sumber MTAQ</h1>
-  </header>
-
-  <main>
+    <h1>Tempahan Pusat Sumber MTAQPC</h1>
+  </header>  <main>
     <form id="booking-form">
       <label for="nama">Nama:</label>
-      <input type="text" id="nama" name="nama" required />
+      <input type="text" id="nama" name="nama" required /><label for="tujuan">Tujuan:</label>
+  <input type="text" id="tujuan" name="tujuan" required />
 
-      <label for="tujuan">Tujuan:</label>
-      <input type="text" id="tujuan" name="tujuan" required />
+  <label for="bilik">Pilih Dewan/Bilik:</label>
+  <select id="bilik" name="bilik" required>
+    <option value="" disabled selected>-- Sila Pilih --</option>
+    <option value="Dewan Tok Guru">Dewan Tok Guru</option>
+    <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
+    <option value="Bilik Seminar">Bilik Seminar</option>
+    <option value="Bilik ICT">Bilik ICT</option>
+    <option value="Maktabah">Maktabah</option>
+    <option value="Bilik Gerakan">Bilik Gerakan</option>
+  </select>
 
-      <label for="bilik">Pilih Dewan/Bilik:</label>
-      <select id="bilik" name="bilik" required>
-        <option value="" disabled selected>-- Sila Pilih --</option>
-        <option value="Dewan Tok Guru">Dewan Tok Guru</option>
-        <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
-        <option value="Bilik Seminar">Bilik Seminar</option>
-        <option value="Bilik ICT">Bilik ICT</option>
-        <option value="Maktabah">Maktabah</option>
-        <option value="Bilik Gerakan">Bilik Gerakan</option>
-      </select>
+  <label for="hari">Hari:</label>
+  <input type="text" id="hari" name="hari" required />
 
-      <label for="hari">Hari:</label>
-      <input type="text" id="hari" name="hari" required />
+  <label for="tarikh">Tarikh Tempahan:</label>
+  <input type="date" id="tarikh" name="tarikh" required />
 
-      <label for="tarikh">Tarikh Tempahan:</label>
-      <input type="date" id="tarikh" name="tarikh" required />
+  <label for="masaMula">Masa Mula:</label>
+  <input type="time" id="masaMula" name="masaMula" required />
 
-      <label for="masaMula">Masa Mula:</label>
-      <input type="time" id="masaMula" name="masaMula" required />
+  <label for="masaTamat">Masa Tamat:</label>
+  <input type="time" id="masaTamat" name="masaTamat" required />
 
-      <label for="masaTamat">Masa Tamat:</label>
-      <input type="time" id="masaTamat" name="masaTamat" required />
+  <label for="peserta">Bilangan Peserta / Senarai Peserta:</label>
+  <textarea id="peserta" name="peserta" rows="3" placeholder="Contoh: 30 orang / Ting 5A..." required></textarea>
 
-      <label for="peserta">Bilangan Peserta / Senarai Peserta:</label>
-      <textarea id="peserta" name="peserta" rows="3" placeholder="Contoh: 30 orang / Ting 5A..." required></textarea>
+  <button type="submit">Hantar Tempahan</button>
+</form>
 
-      <button type="submit">Hantar Tempahan</button>
-    </form>
+<div id="output" style="display: none;"></div>
 
-    <div id="output" style="display: none;"></div>
-  </main>
-
-  <footer>
+  </main>  <footer>
     <p>&copy; 2025 Amin Shamsul. Hak cipta terpelihara.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+  </footer>  <script src="script.js"></script></body>
 </html>
