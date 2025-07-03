@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tempahan Pusat Sumber MTAQ</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -33,9 +32,9 @@
       </select>
 
       <label for="hari">Hari:</label>
-      <input type="text" id="hari" name="hari" placeholder="Contoh: Isnin" required />
+      <input type="text" id="hari" name="hari" required />
 
-      <label for="tarikh">Tarikh:</label>
+      <label for="tarikh">Tarikh Tempahan:</label>
       <input type="date" id="tarikh" name="tarikh" required />
 
       <label for="masaMula">Masa Mula:</label>
@@ -44,23 +43,19 @@
       <label for="masaTamat">Masa Tamat:</label>
       <input type="time" id="masaTamat" name="masaTamat" required />
 
-      <label for="peserta">Peserta:</label>
-      <textarea id="peserta" name="peserta" rows="3" placeholder="Contoh: 30 orang / Ting. 5A..." required></textarea>
+      <label for="peserta">Bilangan Peserta / Senarai Peserta:</label>
+      <textarea id="peserta" name="peserta" rows="3" placeholder="Contoh: 30 orang / Ting 5A..." required></textarea>
 
       <button type="submit">Hantar Tempahan</button>
     </form>
 
-    <div id="output"></div>
-
-    <h2>Senarai Tempahan Dalam Kalendar</h2>
-    <div id="calendar"></div>
+    <div id="output" style="display: none;"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Amin Shamsul. Hak Cipta Terpelihara.</p>
+    <p>&copy; 2025 Amin Shamsul. Hak cipta terpelihara.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
