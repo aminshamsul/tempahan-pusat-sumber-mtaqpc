@@ -1,80 +1,53 @@
-const endpoint = "https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1";
+document.getElementById("booking-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-document.getElementById("booking-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+  const data = {
+    nama: document.getElementById("nama").value,
+    tujuan: document.getElementById("tujuan").value,
+    bilik: document.getElementById("bilik").value,
+    hari: document.getElementById("hari").value,
+    tarikh: document.getElementById("tarikh").value,
+    masa: document.getElementById("masaMula").value + " - " + document.getElementById("masaTamat").value,
+    peserta: document.getElementById("peserta").value
+  };
 
-  const data = [
-    [
-      document.getElementById("nama").value,
-      document.getElementById("tujuan").value,
-      document.getElementById("bilik").value,
-      document.getElementById("hari").value,
-      document.getElementById("tarikh").value,
-      document.getElementById("masaMula").value,
-      document.getElementById("masaTamat").value,
-      document.getElementById("peserta").value
-    ]
-  ];
-
-  fetch(endpoint, {
+  fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
     method: "POST",
+    body: JSON.stringify([Object.values(data)]),
     headers: {
       "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ data: data })
+    }
   })
-    .then(res => res.json())
-    .then(() => {
-      document.getElementById("booking-form").reset();
-      document.getElementById("output").innerHTML = "<p><strong>Tempahan anda telah dihantar.</strong></p>";
-      fetchData(); // refresh senarai tempahan
-    })
-    .catch(err => {
-      document.getElementById("output").innerHTML = "<p style='color:red'>Ralat semasa menghantar data.</p>";
-      console.error(err);
-    });
+  .then(res => res.json())
+  .then(() => {
+    document.getElementById("output").style.display = "block";
+    document.getElementById("output").innerHTML = "<h3>Tempahan diterima. Terima kasih!</h3>";
+    document.getElementById("booking-form").reset();
+    loadSenaraiTempahan(); // Muat semula data
+  })
+  .catch(error => {
+    document.getElementById("output").style.display = "block";
+    document.getElementById("output").innerHTML = "<p>Ralat: " + error.message + "</p>";
+  });
 });
 
-function fetchData() {
-  fetch(endpoint)
+function loadSenaraiTempahan() {
+  fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1")
     .then(res => res.json())
-    .then(rows => {
-      let table = `<table>
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Tujuan</th>
-            <th>Dewan/Bilik</th>
-            <th>Hari</th>
-            <th>Tarikh</th>
-            <th>Masa Mula</th>
-            <th>Masa Tamat</th>
-            <th>Peserta</th>
-          </tr>
-        </thead>
-        <tbody>`;
-
-      // skip header (index 0)
-      rows.slice(1).reverse().forEach(row => {
-        table += `<tr>
-          <td>${row[0]}</td>
-          <td>${row[1]}</td>
-          <td>${row[2]}</td>
-          <td>${row[3]}</td>
-          <td>${row[4]}</td>
-          <td>${row[5]}</td>
-          <td>${row[6]}</td>
-          <td>${row[7]}</td>
-        </tr>`;
+    .then(data => {
+      const tbody = document.querySelector("#jadual-tempahan tbody");
+      tbody.innerHTML = "";
+      data.data.slice(1).reverse().forEach(row => {
+        const tr = document.createElement("tr");
+        row.forEach(item => {
+          const td = document.createElement("td");
+          td.textContent = item;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
       });
-
-      table += `</tbody></table>`;
-      document.getElementById("tempahan-list").innerHTML = table;
-    })
-    .catch(err => {
-      console.error("Gagal ambil data:", err);
     });
 }
 
-// Papar data semasa mula
-fetchData();
+// Auto load senarai bila buka
+loadSenaraiTempahan();
