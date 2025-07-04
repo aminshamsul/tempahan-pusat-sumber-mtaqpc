@@ -1,74 +1,130 @@
+/* style.css */
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #e9f5e9;
   margin: 0;
-  background: #e6fef1; /* Hijau muda */
-  color: #064e3b;
+  padding: 0;
+  color: #333;
 }
 
 header {
-  background: #bbf7d0; /* Lebih cerah hijau */
-  padding: 20px;
+  background-color: #a1d6a1;
+  color: #084c08;
   text-align: center;
+  padding: 20px;
 }
 
 .logo {
-  width: 100px;
+  max-height: 80px;
   margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8em;
 }
 
 main {
   padding: 20px;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
 }
 
-label {
-  margin-top: 10px;
-  font-weight: 600;
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
 }
 
-input, select, textarea, button {
+form input,
+form select,
+form textarea {
+  width: 100%;
   padding: 8px;
-  margin-top: 4px;
-  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
-button {
-  margin-top: 20px;
-  background: #10b981; /* Hijau terang */
+form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+#output {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #d9ffd9;
+  border: 1px solid #5cb85c;
+  border-radius: 6px;
+  color: #2b5e2b;
+}
+
+#senarai-tempahan {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#senarai-tempahan h2 {
+  margin-top: 0;
+}
+
+#senarai-tempahan button {
+  margin-bottom: 10px;
+  background-color: #388e3c;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #059669;
+#senarai-tempahan button:hover {
+  background-color: #2e7d32;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+th {
+  background-color: #c7eac7;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #065f46;
-  background: #d1fae5;
-}
-
-.success-message {
-  margin-top: 20px;
   padding: 15px;
-  background-color: #d1fae5;
-  color: #065f46;
-  border: 1px solid #10b981;
-  border-radius: 6px;
-  font-weight: bold;
-  text-align: center;
+  background-color: #a1d6a1;
+  color: #084c08;
+  font-size: 0.9em;
 }
