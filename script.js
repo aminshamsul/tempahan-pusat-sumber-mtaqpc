@@ -34,7 +34,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     document.getElementById("booking-form").reset();
     const output = document.getElementById("output");
     output.style.display = "block";
-    output.textContent = "✅ Tempahan berjaya dihantar!";
+    output.textContent = "✅ Rekod berjaya dihantar!";
   })
   .catch(error => {
     alert("❌ Ralat semasa menghantar: " + error.message);
