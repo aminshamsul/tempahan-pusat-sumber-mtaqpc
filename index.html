@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ms">
+<!DOCTYPE html>
+<html lang="ms">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,122 +11,53 @@
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
     <h1>Rekod Pusat Sumber MTAQ</h1>
-  </header>  <main>
+  </header>
+
+  <main>
     <form id="booking-form">
       <label for="nama">Nama:</label>
-      <input type="text" id="nama" name="nama" required /><label for="tujuan">Tujuan:</label>
-  <input type="text" id="tujuan" name="tujuan" required />
+      <input type="text" id="nama" name="nama" required />
 
-  <label for="bilik">Dewan/Bilik:</label>
-  <select id="bilik" name="bilik" required>
-    <option value="" disabled selected>-- Sila Pilih --</option>
-    <option value="Dewan Tok Guru">Dewan Tok Guru</option>
-    <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
-    <option value="Bilik Seminar">Bilik Seminar</option>
-    <option value="Bilik ICT">Bilik ICT</option>
-    <option value="Maktabah">Maktabah</option>
-    <option value="Bilik Gerakan">Bilik Gerakan</option>
-  </select>
+      <label for="tujuan">Tujuan:</label>
+      <input type="text" id="tujuan" name="tujuan" required />
 
-  <label for="hari">Hari:</label>
-  <input type="text" id="hari" name="hari" required />
+      <label for="bilik">Dewan/Bilik:</label>
+      <select id="bilik" name="bilik" required>
+        <option value="" disabled selected>-- Sila Pilih --</option>
+        <option value="Dewan Tok Guru">Dewan Tok Guru</option>
+        <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
+        <option value="Bilik Seminar">Bilik Seminar</option>
+        <option value="Bilik ICT">Bilik ICT</option>
+        <option value="Maktabah">Maktabah</option>
+        <option value="Bilik Gerakan">Bilik Gerakan</option>
+      </select>
 
-  <label for="tarikh">Tarikh:</label>
-  <input type="date" id="tarikh" name="tarikh" required />
+      <label for="hari">Hari:</label>
+      <input type="text" id="hari" name="hari" required />
 
-  <label for="masaMula">Masa Mula:</label>
-  <input type="time" id="masaMula" name="masaMula" required />
+      <label for="tarikh">Tarikh:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
 
-  <label for="masaTamat">Masa Tamat:</label>
-  <input type="time" id="masaTamat" name="masaTamat" required />
+      <label for="masaMula">Masa Mula:</label>
+      <input type="time" id="masaMula" name="masaMula" required />
 
-  <label for="peserta">Peserta:</label>
-  <textarea id="peserta" name="peserta" rows="3" required placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
+      <label for="masaTamat">Masa Tamat:</label>
+      <input type="time" id="masaTamat" name="masaTamat" required />
 
-  <button type="submit">Hantar Rekod</button>
-</form>
+      <label for="peserta">Peserta:</label>
+      <textarea id="peserta" name="peserta" rows="3" required placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
 
-<div id="output" class="success-message" style="display: none;"></div>
+      <button type="submit">Hantar Rekod</button>
+    </form>
 
-<hr style="margin: 40px 0;">
-<h2>Senarai Tempahan</h2>
-<div style="overflow-x:auto">
-  <table id="jadualTempahan" class="display" style="width:100%">
-    <thead>
-      <tr>
-        <th>Nama</th>
-        <th>Tujuan</th>
-        <th>Bilik</th>
-        <th>Hari</th>
-        <th>Tarikh</th>
-        <th>Masa</th>
-        <th>Peserta</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+    <div id="output" class="success-message" style="display: none;"></div>
 
-  </main>  <footer>
-    <p>&copy; 2025 Amin Shamsul. Hak Cipta Terpelihara.</p>
-  </footer>  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>  <script>
-    function to12HourFormat(time24) {
-      const [hour, minute] = time24.split(":"), h = +hour;
-      return `${h % 12 || 12}:${minute} ${h >= 12 ? "PM" : "AM"}`;
-    }
-
-    document.getElementById("booking-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const masaMula = to12HourFormat(document.getElementById("masaMula").value);
-      const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
-
-      const data = {
-        nama: document.getElementById("nama").value,
-        tujuan: document.getElementById("tujuan").value,
-        bilik: document.getElementById("bilik").value,
-        hari: document.getElementById("hari").value,
-        tarikh: document.getElementById("tarikh").value,
-        masa: `${masaMula} - ${masaTamat}`,
-        peserta: document.getElementById("peserta").value
-      };
-
-      fetch("https://sheetdb.io/api/v1/lg94mwgyj3sex", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data })
-      })
-      .then(res => res.json())
-      .then(response => {
-        if (response.created) {
-          document.getElementById("booking-form").reset();
-          const output = document.getElementById("output");
-          output.style.display = "block";
-          output.textContent = "✅ Rekod berjaya dihantar!";
-        } else {
-          alert("⚠️ Gagal hantar. Sila cuba lagi.");
-        }
-      })
-      .catch(error => alert("❌ Ralat semasa menghantar: " + error.message));
-    });
-
-    fetch("https://sheetdb.io/api/v1/lg94mwgyj3sex")
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.querySelector("#jadualTempahan tbody");
-        data.forEach(item => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${item.nama}</td>
-            <td>${item.tujuan}</td>
-            <td>${item.bilik}</td>
-            <td>${item.hari}</td>
-            <td>${item.tarikh}</td>
-            <td>${item.masa}</td>
-            <td>${item.peserta}</td>`;
-          tbody.appendChild(row);
-        });
-        $('#jadualTempahan').DataTable();
-      });
-  </script></body>
-</html>
+    <hr style="margin: 40px 0;">
+    <h2>Senarai Tempahan</h2>
+    <div style="overflow-x:auto">
+      <table id="jadualTempahan" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Tujuan</th>
+            <th>Bilik
