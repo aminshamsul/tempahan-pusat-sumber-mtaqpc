@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rekod Pusat Sumber MTAQ</title>
+  <title>Tempahan Pusat Sumber MTAQ</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
 </head>
 <body>
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
-    <h1>Rekod Pusat Sumber MTAQ</h1>
+    <h1>Tempahan Pusat Sumber MTAQ</h1>
   </header>
 
   <main>
@@ -45,19 +44,19 @@
       <input type="time" id="masaTamat" name="masaTamat" required />
 
       <label for="peserta">Peserta:</label>
-      <textarea id="peserta" name="peserta" rows="3" required placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
+      <textarea id="peserta" name="peserta" rows="3" required
+        placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
 
-      <button type="submit">Hantar Rekod</button>
+      <button type="submit">Hantar Tempahan</button>
     </form>
 
     <div id="output" class="success-message" style="display: none;"></div>
+  </main>
 
-    <hr style="margin: 40px 0;">
-    <h2>Senarai Tempahan</h2>
-    <div style="overflow-x:auto">
-      <table id="jadualTempahan" class="display" style="width:100%">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Tujuan</th>
-            <th>Bilik
+  <footer>
+    <p>&copy; 2025 Amin Shamsul. Hak cipta terpelihara.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
