@@ -1,64 +1,67 @@
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tempahan Pusat Sumber MTAQ</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
-    <h1>Rekod Pusat Sumber MTAQ</h1>
-  </header>
+function to12HourFormat(time24) {
+  const [hour, minute] = time24.split(":");
+  const h = +hour;
+  const suffix = h >= 12 ? "PM" : "AM";
+  const hour12 = h % 12 || 12;
+  return `${hour12}:${minute} ${suffix}`;
+}
 
-  <main>
-    <form id="booking-form">
-      <label for="nama">Nama:</label>
-      <input type="text" id="nama" name="nama" required />
+function getHariMelayu(dateObj) {
+  const hariList = ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"];
+  return hariList[dateObj.getDay()];
+}
 
-      <label for="tujuan">Tujuan:</label>
-      <input type="text" id="tujuan" name="tujuan" required />
+function setRekodMasaNow() {
+  const now = new Date();
+  const hariNow = getHariMelayu(now);
+  const tarikhNow = now.toLocaleDateString("ms-MY");
+  const hour = now.getHours();
+  const minute = now.getMinutes().toString().padStart(2, "0");
+  const suffix = hour >= 12 ? "PM" : "AM";
+  const hour12 = hour % 12 || 12;
+  const masaNow = `${hour12}:${minute} ${suffix}`;
+  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
+  document.getElementById("rekod").value = rekodHantar;
+}
 
-      <label for="bilik">Dewan/Bilik:</label>
-      <select id="bilik" name="bilik" required>
-        <option value="" disabled selected>-- Sila Pilih --</option>
-        <option value="Dewan Tok Guru">Dewan Tok Guru</option>
-        <option value="Dewan As-Syatibiy">Dewan As-Syatibiy</option>
-        <option value="Bilik Seminar">Bilik Seminar</option>
-        <option value="Bilik ICT">Bilik ICT</option>
-        <option value="Maktabah">Maktabah</option>
-        <option value="Bilik Gerakan">Bilik Gerakan</option>
-      </select>
+document.getElementById("booking-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      <label for="hari">Hari:</label>
-      <input type="text" id="hari" name="hari" required />
+  const masaMula = to12HourFormat(document.getElementById("masaMula").value);
+  const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
 
-      <label for="tarikh">Tarikh:</label>
-      <input type="date" id="tarikh" name="tarikh" required />
+  const data = {
+    nama: document.getElementById("nama").value,
+    tujuan: document.getElementById("tujuan").value,
+    bilik: document.getElementById("bilik").value,
+    hari: document.getElementById("hari").value,
+    tarikh: document.getElementById("tarikh").value,
+    masa: masaMula + " - " + masaTamat,
+    peserta: document.getElementById("peserta").value,
+    rekod: document.getElementById("rekod").value
+  };
 
-      <label for="masaMula">Masa Mula:</label>
-      <input type="time" id="masaMula" name="masaMula" required />
+  fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify([Object.values(data)])
+  })
+  .then(res => res.json())
+  .then(response => {
+    const output = document.getElementById("output");
+    output.style.display = "block";
+    output.textContent = "✅ Rekod berjaya dihantar! Sila maklum penggunaan dalam MTAQ [RASMI]";
 
-      <label for="masaTamat">Masa Tamat:</label>
-      <input type="time" id="masaTamat" name="masaTamat" required />
+    // Disable button selepas submit
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Rekod Telah Dihantar ✅";
+  })
+  .catch(error => {
+    alert("❌ Ralat semasa menghantar: " + error.message);
+  });
+});
 
-      <label for="peserta">Peserta:</label>
-      <textarea id="peserta" name="peserta" rows="3" required placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
-
-      <label for="rekod">Hari & Masa Hantar Rekod (Auto):</label>
-      <input type="text" id="rekod" name="rekod" readonly />
-
-      <button type="submit" id="submitBtn">Hantar Rekod</button>
-    </form>
-
-    <div id="output" class="success-message" style="display: none;"></div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Pusat Sumber MTAQ. Hak cipta terpelihara.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+window.addEventListener("DOMContentLoaded", setRekodMasaNow);
