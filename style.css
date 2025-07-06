@@ -1,3 +1,4 @@
+/* GAYA UMUM */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -6,23 +7,24 @@ body {
 }
 
 header {
-  background: #bbf7d0; /* Lebih cerah hijau */
+  background: #bbf7d0;
   padding: 20px;
   text-align: center;
 }
 
 .logo {
-  width: 100px;
+  width: 80px;
   margin-bottom: 10px;
 }
 
 main {
   padding: 20px;
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-sizing: border-box;
 }
 
 form {
@@ -35,19 +37,26 @@ label {
   font-weight: 600;
 }
 
-input, select, textarea, button {
-  padding: 8px;
+input,
+select,
+textarea,
+button {
+  padding: 10px;
   margin-top: 4px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 button {
   margin-top: 20px;
-  background: #10b981; /* Hijau terang */
+  background: #10b981;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 button:hover {
@@ -62,6 +71,7 @@ footer {
   background: #d1fae5;
 }
 
+/* MESEJ BERJAYA */
 .success-message {
   margin-top: 20px;
   padding: 15px;
@@ -71,4 +81,34 @@ footer {
   border-radius: 6px;
   font-weight: bold;
   text-align: center;
+}
+
+/* MEDIA QUERY: Untuk telefon (skrin kecil) */
+@media (max-width: 600px) {
+  main {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .logo {
+    width: 70px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
 }
