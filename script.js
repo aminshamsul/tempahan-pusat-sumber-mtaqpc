@@ -17,14 +17,14 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   const masaMula = to12HourFormat(document.getElementById("masaMula").value);
   const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
 
+  // Auto set masa dan hari hantar
   const now = new Date();
   const hariNow = getHariMelayu(now);
   const tarikhNow = now.toLocaleDateString("ms-MY");
   const masaNow = now.toLocaleTimeString("ms-MY", { hour: '2-digit', minute: '2-digit', hour12: true });
+  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
 
-  // Isi input readonly yang dipaparkan kepada pengguna
-  document.getElementById("rekodMasa").value = `${hariNow}, ${masaNow}`;
-  document.getElementById("rekodTarikh").value = tarikhNow;
+  document.getElementById("rekod").value = rekodHantar;
 
   const data = {
     nama: document.getElementById("nama").value,
@@ -34,8 +34,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     tarikh: document.getElementById("tarikh").value,
     masa: masaMula + " - " + masaTamat,
     peserta: document.getElementById("peserta").value,
-    rekodMasa: document.getElementById("rekodMasa").value,
-    rekodTarikh: document.getElementById("rekodTarikh").value
+    rekod: document.getElementById("rekod").value
   };
 
   fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
