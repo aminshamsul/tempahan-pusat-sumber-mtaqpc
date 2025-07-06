@@ -6,17 +6,9 @@ function to12HourFormat(time24) {
   return `${hour12}:${minute} ${suffix}`;
 }
 
-function getHari(nomborHari) {
+function getHariMelayu(dateObj) {
   const hariList = ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"];
-  return hariList[nomborHari];
-}
-
-function getTarikhMasaRekod() {
-  const sekarang = new Date();
-  const hari = getHari(sekarang.getDay());
-  const tarikh = sekarang.toLocaleDateString("ms-MY");
-  const masa = sekarang.toLocaleTimeString("ms-MY", { hour: '2-digit', minute: '2-digit' });
-  return `${hari}, ${tarikh} ${masa}`;
+  return hariList[dateObj.getDay()];
 }
 
 document.getElementById("booking-form").addEventListener("submit", function(event) {
@@ -24,10 +16,14 @@ document.getElementById("booking-form").addEventListener("submit", function(even
 
   const masaMula = to12HourFormat(document.getElementById("masaMula").value);
   const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
-  const rekodMasa = getTarikhMasaRekod();
 
-  // Tampilkan nilai dalam input
-  document.getElementById("rekodMasa").value = rekodMasa;
+  const now = new Date();
+  const hariNow = getHariMelayu(now);
+  const tarikhNow = now.toLocaleDateString("ms-MY");
+  const masaNow = now.toLocaleTimeString("ms-MY", { hour: '2-digit', minute: '2-digit', hour12: true });
+  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
+
+  document.getElementById("rekod").value = rekodHantar;
 
   const data = {
     nama: document.getElementById("nama").value,
@@ -37,7 +33,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     tarikh: document.getElementById("tarikh").value,
     masa: masaMula + " - " + masaTamat,
     peserta: document.getElementById("peserta").value,
-    rekodMasa: rekodMasa
+    rekod: document.getElementById("rekod").value
   };
 
   fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
