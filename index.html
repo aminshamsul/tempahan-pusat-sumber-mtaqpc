@@ -32,4 +32,34 @@
       </select>
 
       <label for="hari">Hari:</label>
-      <
+      <input type="text" id="hari" name="hari" required />
+
+      <label for="tarikh">Tarikh:</label>
+      <input type="date" id="tarikh" name="tarikh" required />
+
+      <label for="masaMula">Masa Mula:</label>
+      <input type="time" id="masaMula" name="masaMula" required />
+
+      <label for="masaTamat">Masa Tamat:</label>
+      <input type="time" id="masaTamat" name="masaTamat" required />
+
+      <label for="peserta">Peserta:</label>
+      <textarea id="peserta" name="peserta" rows="3" required
+        placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
+
+      <label for="rekod">Hari & Masa Hantar Rekod:</label>
+      <input type="text" id="rekod" name="rekod" readonly />
+
+      <button type="submit">Hantar Rekod</button>
+    </form>
+
+    <div id="output" class="success-message" style="display: none;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pusat Sumber MTAQ. Hak cipta terpelihara.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
