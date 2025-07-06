@@ -11,20 +11,24 @@ function getHariMelayu(dateObj) {
   return hariList[dateObj.getDay()];
 }
 
+function setRekodMasaNow() {
+  const now = new Date();
+  const hariNow = getHariMelayu(now);
+  const tarikhNow = now.toLocaleDateString("ms-MY");
+  const masaNow = now.toLocaleTimeString("ms-MY", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
+  document.getElementById("rekod").value = rekodHantar;
+}
+
 document.getElementById("booking-form").addEventListener("submit", function(event) {
   event.preventDefault();
 
   const masaMula = to12HourFormat(document.getElementById("masaMula").value);
   const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
-
-  // Auto set masa dan hari hantar
-  const now = new Date();
-  const hariNow = getHariMelayu(now);
-  const tarikhNow = now.toLocaleDateString("ms-MY");
-  const masaNow = now.toLocaleTimeString("ms-MY", { hour: '2-digit', minute: '2-digit', hour12: true });
-  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
-
-  document.getElementById("rekod").value = rekodHantar;
 
   const data = {
     nama: document.getElementById("nama").value,
@@ -47,6 +51,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   .then(res => res.json())
   .then(response => {
     document.getElementById("booking-form").reset();
+    setRekodMasaNow(); // Reset nilai rekod baru selepas submit
     const output = document.getElementById("output");
     output.style.display = "block";
     output.textContent = "✅ Rekod berjaya dihantar! Sila maklum penggunaan dalam MTAQ [RASMI]";
@@ -55,3 +60,5 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     alert("❌ Ralat semasa menghantar: " + error.message);
   });
 });
+
+window.addEventListener("DOMContentLoaded", setRekodMasaNow);
