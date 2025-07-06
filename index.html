@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rekod Pusat Sumber MTAQ</title>
+  <title>Tempahan Pusat Sumber MTAQ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,54 +15,7 @@
   <main>
     <form id="booking-form">
       <label for="nama">Nama:</label>
-      <select id="nama" name="nama" required>
-        <option value="" disabled selected>-- Pilih Nama --</option>
-        <option>Suhaimi Bin Sulaiman</option>
-        <option>Mohamad Nahi Bin Mohamed Hasbullah</option>
-        <option>Mohd Adnan Bin Hamat</option>
-        <option>Mohd Musaddiq Bin Mat</option>
-        <option>Norruzaimi Bin Rusman</option>
-        <option>Anas Bin Awang Qamaruldeen</option>
-        <option>Abd Nasir Bin Ismail</option>
-        <option>Adnan Bin Mamat</option>
-        <option>Ibrahim Bin Samat</option>
-        <option>Mohd Fakhruddin Bin Zurajali</option>
-        <option>Zailan Bin Salleh</option>
-        <option>Mohd Sahrin Bin Mohd Saari</option>
-        <option>Agos Azizuddin Bin Agos Salim</option>
-        <option>Ahmed Abdullah Mohamed</option>
-        <option>Maged Ahmed Ali Muthana Al-Qaifi</option>
-        <option>Ahmad Izzuddin Bin Mohd Nasir</option>
-        <option>Ahmad Mahfudz Bin Mukri</option>
-        <option>Ahmad Munir Bin Rahman</option>
-        <option>Ahmad Othman Bin Hj Ahmad Siuti</option>
-        <option>Ahmad Syafiq Bin Mohd Sakri</option>
-        <option>Amarrul Ikram Bin Ahmad Salihim</option>
-        <option>Azman Bin Mohamed Noor</option>
-        <option>Mohamad Fauzi Bin Rathi @ Radzi</option>
-        <option>Mohamed Faris Izwan Bin Mohamed Yusoff</option>
-        <option>Mohd Fikri Bin Mat Ali</option>
-        <option>Mohd Hakimi Bin Muhamad Baharudin</option>
-        <option>Muhammad Aherf Akmal Bin Nordin</option>
-        <option>Muhammad Al-Amin Bin Shamsul Bahri</option>
-        <option>Muhammad Alkazim Bin Ismail</option>
-        <option>Muhammad Anas Bin Mohd Sari</option>
-        <option>Muhammad Ashraf Bin Ab Ghani</option>
-        <option>Muhammad Firdaus Bin Burhan</option>
-        <option>Muhammad Ikram Bin Poat</option>
-        <option>Muhammad Rais Rabbani Bin Abd Rahim</option>
-        <option>Muhammad Shahid Izzudin Bin Mohd Zulkafli</option>
-        <option>Muhd Hisyam Bin Mohamad</option>
-        <option>Nik Afiq Bin Ismail</option>
-        <option>Nik Mohd Roslan Bin Nik Ismail</option>
-        <option>Nik Muhammad Azamuddin Bin Che Daud</option>
-        <option>Omar Mustaqim Bin Abdullah</option>
-        <option>Raja Muhammad Adib Bin Raja Mohamed</option>
-        <option>Wan Muhammad Afif Bin Marzuki</option>
-        <option>Wan Muhammad Najwan Atiq Bin Wan Napi</option>
-        <option>Zakuan Bin Abdul Talib</option>
-        <option>Muhammad Fadhil Fauzan Bin Salleh</option>
-      </select>
+      <input type="text" id="nama" name="nama" required />
 
       <label for="tujuan">Tujuan:</label>
       <input type="text" id="tujuan" name="tujuan" required />
@@ -91,19 +44,20 @@
       <input type="time" id="masaTamat" name="masaTamat" required />
 
       <label for="peserta">Peserta:</label>
-<textarea id="peserta" name="peserta" rows="3" required
-  placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
+      <textarea id="peserta" name="peserta" rows="3" required
+        placeholder="Contoh: 30 orang / Pelajar Tingkatan 5B..."></textarea>
 
-<label for="rekodMasa">Hari & Masa Rekod Dihantar:</label>
-<input type="text" id="rekodMasa" name="rekodMasa" readonly />
+      <label for="rekod">Hari & Masa Rekod Dihantar:</label>
+      <input type="text" id="rekod" name="rekod" readonly />
 
-<button type="submit">Hantar Rekod</button>
+      <button type="submit">Hantar Rekod</button>
+    </form>
 
     <div id="output" class="success-message" style="display: none;"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Pusat Sumber MTAQ. Hak Cipta Terpelihara.</p>
+    <p>&copy; 2025 Amin Shamsul. Hak cipta terpelihara.</p>
   </footer>
 
   <script src="script.js"></script>
