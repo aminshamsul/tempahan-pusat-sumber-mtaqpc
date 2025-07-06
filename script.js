@@ -21,9 +21,10 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   const hariNow = getHariMelayu(now);
   const tarikhNow = now.toLocaleDateString("ms-MY");
   const masaNow = now.toLocaleTimeString("ms-MY", { hour: '2-digit', minute: '2-digit', hour12: true });
-  const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
 
-  document.getElementById("rekod").value = rekodHantar;
+  // Isi input readonly yang dipaparkan kepada pengguna
+  document.getElementById("rekodMasa").value = `${hariNow}, ${masaNow}`;
+  document.getElementById("rekodTarikh").value = tarikhNow;
 
   const data = {
     nama: document.getElementById("nama").value,
@@ -33,7 +34,8 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     tarikh: document.getElementById("tarikh").value,
     masa: masaMula + " - " + masaTamat,
     peserta: document.getElementById("peserta").value,
-    rekod: document.getElementById("rekod").value
+    rekodMasa: document.getElementById("rekodMasa").value,
+    rekodTarikh: document.getElementById("rekodTarikh").value
   };
 
   fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
