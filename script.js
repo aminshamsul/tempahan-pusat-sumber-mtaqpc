@@ -15,11 +15,11 @@ function setRekodMasaNow() {
   const now = new Date();
   const hariNow = getHariMelayu(now);
   const tarikhNow = now.toLocaleDateString("ms-MY");
-  const masaNow = now.toLocaleTimeString("ms-MY", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
+  const jamNow = now.getHours();
+  const minNow = now.getMinutes().toString().padStart(2, '0');
+  const suffix = jamNow >= 12 ? "PM" : "AM";
+  const jam12 = jamNow % 12 || 12;
+  const masaNow = `${jam12}:${minNow} ${suffix}`;
   const rekodHantar = `${hariNow}, ${tarikhNow} ${masaNow}`;
   document.getElementById("rekod").value = rekodHantar;
 }
@@ -50,11 +50,16 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   })
   .then(res => res.json())
   .then(response => {
-    document.getElementById("booking-form").reset();
-    setRekodMasaNow(); // Reset nilai rekod baru selepas submit
     const output = document.getElementById("output");
     output.style.display = "block";
     output.textContent = "✅ Rekod berjaya dihantar! Sila maklum penggunaan dalam MTAQ [RASMI]";
+    
+    // Disable butang submit
+    const button = document.querySelector("#booking-form button[type='submit']");
+    button.disabled = true;
+    button.textContent = "✔️ Telah Dihantar";
+
+    // Kekalkan isi borang
   })
   .catch(error => {
     alert("❌ Ralat semasa menghantar: " + error.message);
