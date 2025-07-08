@@ -4,126 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Laporan Tempahan Pusat Sumber</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Gaya KHAS untuk halaman laporan sahaja */
-    .laporan-container {
-      background: white;
-      max-width: 960px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-
-    .tajuk-laporan {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-      color: #065f46;
-    }
-
-    .butang-print {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .print-button {
-      padding: 10px 20px;
-      background: #0ea5e9;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .print-button:hover {
-      background: #0284c7;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    thead {
-      background: #bbf7d0;
-    }
-
-    th {
-      background: #a7f3d0;
-      color: #065f46;
-      font-weight: bold;
-    }
-
-    @media print {
-      header,
-      footer,
-      .butang-print {
-        display: none;
-      }
-
-      body {
-        background: white;
-        color: black;
-      }
-
-      .laporan-container {
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      table {
-        font-size: 14px;
-        page-break-inside: auto;
-      }
-
-      tr {
-        page-break-inside: avoid;
-        page-break-after: auto;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .laporan-container {
-        padding: 15px;
-        margin: 10px;
-      }
-
-      table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-
-      .logo {
-        width: 70px;
-      }
-
-      .tajuk-laporan {
-        font-size: 18px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="laporan-style.css" />
 </head>
 <body>
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
-    <h1 class="tajuk-laporan">Laporan Tempahan Pusat Sumber</h1>
+    <h1>Laporan Tempahan Pusat Sumber</h1>
   </header>
 
-  <main class="laporan-container">
-    <div class="butang-print">
+  <main>
+    <div class="print-controls">
       <button id="btn-cetak" class="print-button">🖨️ Cetak Laporan</button>
     </div>
     <div id="jadual-laporan">Memuatkan laporan...</div>
