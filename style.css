@@ -1,3 +1,4 @@
+/* ===== GAYA ASAS ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -145,4 +146,61 @@ a.butang-borang:hover {
   footer {
     font-size: 12px;
   }
+
+  table {
+    font-size: 14px;
+  }
+
+  .print-button {
+    width: 100%;
+  }
+}
+
+/* ===== GAYA TAMBAHAN UNTUK ADMIN-LAPORAN ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #bbf7d0;
+}
+
+th, td {
+  border: 1px solid #a7f3d0;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #a7f3d0;
+  color: #065f46;
+  font-weight: bold;
+}
+
+/* Jadual scroll pada telefon */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Butang cetak */
+.print-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background: #0284c7;
 }
