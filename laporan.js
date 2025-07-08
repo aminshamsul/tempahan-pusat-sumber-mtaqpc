@@ -10,8 +10,8 @@ async function loadLaporan() {
       return;
     }
 
-    // Bina jadual
     let html = "<table><thead><tr>" +
+      "<th>Bil.</th>" +
       "<th>Nama</th>" +
       "<th>Tarikh</th>" +
       "<th>Hari</th>" +
@@ -22,8 +22,9 @@ async function loadLaporan() {
       "<th>Rekod</th>" +
       "</tr></thead><tbody>";
 
-    data.items.forEach(item => {
+    data.items.forEach((item, index) => {
       html += `<tr>
+        <td>${index + 1}</td>
         <td>${item.nama}</td>
         <td>${item.tarikh}</td>
         <td>${item.hari}</td>
