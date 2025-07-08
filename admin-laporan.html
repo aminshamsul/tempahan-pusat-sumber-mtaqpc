@@ -3,100 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Laporan Tempahan (Admin)</title>
+  <title>Laporan Tempahan Pusat Sumber - Admin</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    @media print {
-      .butang-cetak, .butang-kembali {
-        display: none;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-      }
-    }
-
-    .butang-cetak, .butang-kembali {
-      margin: 10px 10px 0 0;
-      padding: 10px 20px;
-      background: #10b981;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .butang-cetak:hover {
-      background: #059669;
-    }
-
-    .butang-kembali {
-      background: #14b8a6;
-    }
-
-    .butang-kembali:hover {
-      background: #0d9488;
-    }
-  </style>
 </head>
 <body>
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
     <h1>Laporan Tempahan Pusat Sumber (Admin)</h1>
+    <button onclick="window.print()" class="butang-cetak">🖨️ Cetak Laporan</button>
   </header>
 
   <main>
-    <div class="navigasi-bawah">
-      <button class="butang-cetak" onclick="window.print()">🖨️ Cetak Rekod</button>
-      <a href="index.html" class="butang-kembali">⬅️ Kembali ke Borang</a>
+    <div id="jadual-laporan" class="jadual-laporan">
+      ⏳ Memuatkan data tempahan...
     </div>
 
-    <div id="laporan-admin"></div>
+    <div class="navigasi-bawah">
+      <a href="index.html" class="butang-borang">⬅️ Kembali ke Borang</a>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Pusat Sumber MTAQ. Hak Cipta Terpelihara.</p>
   </footer>
 
-  <script>
-    async function paparkanLaporan() {
-      const kontena = document.getElementById("laporan-admin");
-      kontena.innerHTML = "⏳ Memuatkan data...";
-
-      try {
-        const res = await fetch("https://pocketbase-server-production-ec3b.up.railway.app/api/collections/tempahan/records?sort=-created");
-        const data = await res.json();
-
-        if (!data?.items?.length) {
-          kontena.innerHTML = "❌ Tiada rekod untuk dipaparkan.";
-          return;
-        }
-
-        kontena.innerHTML = "";
-
-        data.items.forEach(item => {
-          const kad = document.createElement("div");
-          kad.className = "kad-tempahan";
-          kad.innerHTML = `
-            <strong>🟩 Nama:</strong> ${item.nama}<br/>
-            <strong>📅 Tarikh:</strong> ${item.tarikh} (${item.hari})<br/>
-            <strong>🕒 Masa:</strong> ${item.masa}<br/>
-            <strong>📍 Bilik:</strong> ${item.bilik}<br/>
-            <strong>🎯 Tujuan:</strong> ${item.tujuan}<br/>
-            <strong>👥 Peserta:</strong> ${item.peserta}<br/>
-            <strong>🕓 Dihantar:</strong> ${item.rekod}
-          `;
-          kontena.appendChild(kad);
-        });
-
-      } catch (err) {
-        kontena.innerHTML = "❌ Ralat semasa memuatkan: " + err.message;
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", paparkanLaporan);
-  </script>
+  <script src="laporan.js"></script>
 </body>
 </html>
