@@ -46,11 +46,7 @@ async function loadLaporan() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadLaporan();
-
-  const cetakBtn = document.getElementById("btn-cetak");
-  if (cetakBtn) {
-    cetakBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
+  document.getElementById("btn-cetak").addEventListener("click", () => {
+    window.print();
+  });
 });
