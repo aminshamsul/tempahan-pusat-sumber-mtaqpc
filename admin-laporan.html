@@ -5,69 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Laporan Tempahan Pusat Sumber</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Gaya khas untuk paparan laporan sahaja */
-    .laporan-container {
-      background: white;
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .tajuk-laporan {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .butang-print {
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .butang-print button {
-      background: #10b981;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .butang-print button:hover {
-      background: #059669;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f0fdf4;
-    }
-
-    @media print {
-      .butang-print, footer {
-        display: none;
-      }
-      body {
-        background: white !important;
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -75,12 +12,12 @@
     <h1 class="tajuk-laporan">Laporan Tempahan Pusat Sumber</h1>
   </header>
 
-  <div class="laporan-container">
+  <main class="laporan-container">
     <div class="butang-print">
-      <button onclick="window.print()">🖨️ Cetak Laporan</button>
+      <button onclick="window.print()" class="print-button">🖨️ Cetak Laporan</button>
     </div>
     <div id="jadual-laporan">Memuatkan laporan...</div>
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 Pusat Sumber MTAQ. Hak Cipta Terpelihara.</p>
