@@ -2,7 +2,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #e6fef1; /* Hijau muda */
+  background: #e6fef1;
   color: #064e3b;
 }
 
@@ -83,7 +83,17 @@ footer {
   text-align: center;
 }
 
-/* NAVIGASI BUTANG (Lihat Senarai / Kembali Borang) */
+/* KAD TEMPAHAN */
+.kad-tempahan {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* NAVIGASI BUTANG */
 .navigasi-bawah {
   margin-top: 30px;
   text-align: center;
@@ -115,7 +125,7 @@ a.butang-borang:hover {
   background: #0d9488;
 }
 
-/* MEDIA QUERY: Untuk telefon (skrin kecil) */
+/* MEDIA QUERY */
 @media (max-width: 600px) {
   main {
     padding: 15px;
