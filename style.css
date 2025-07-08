@@ -1,4 +1,3 @@
-/* GAYA UMUM */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -37,10 +36,7 @@ label {
   font-weight: 600;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
   padding: 10px;
   margin-top: 4px;
   font-size: 16px;
@@ -71,7 +67,6 @@ footer {
   background: #d1fae5;
 }
 
-/* MESEJ BERJAYA */
 .success-message {
   margin-top: 20px;
   padding: 15px;
@@ -83,7 +78,7 @@ footer {
   text-align: center;
 }
 
-/* KAD TEMPAHAN */
+/* Kad */
 .kad-tempahan {
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
@@ -93,7 +88,7 @@ footer {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* NAVIGASI BUTANG */
+/* Butang navigasi */
 .navigasi-bawah {
   margin-top: 30px;
   text-align: center;
@@ -125,7 +120,7 @@ a.butang-borang:hover {
   background: #0d9488;
 }
 
-/* MEDIA QUERY */
+/* Responsive */
 @media (max-width: 600px) {
   main {
     padding: 15px;
@@ -138,10 +133,7 @@ a.butang-borang:hover {
     width: 70px;
   }
 
-  input,
-  select,
-  textarea,
-  button {
+  input, select, textarea, button {
     font-size: 15px;
     padding: 8px;
   }
