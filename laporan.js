@@ -10,44 +10,52 @@ async function loadLaporan() {
       return;
     }
 
-    let html = "<table><thead><tr>" +
-      "<th>Bil</th>" +
-      "<th>Nama</th>" +
-      "<th>Tarikh</th>" +
-      "<th>Hari</th>" +
-      "<th>Masa</th>" +
-      "<th>Bilik</th>" +
-      "<th>Tujuan</th>" +
-      "<th>Peserta</th>" +
-      "<th>Rekod</th>" +
-      "</tr></thead><tbody>";
+    let html = `
+      <table>
+        <thead>
+          <tr>
+            <th>Bil</th>
+            <th>Nama</th>
+            <th>Tarikh</th>
+            <th>Hari</th>
+            <th>Masa</th>
+            <th>Bilik</th>
+            <th>Tujuan</th>
+            <th>Peserta</th>
+            <th>Rekod</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
 
     data.items.forEach((item, index) => {
-      html += `<tr>
-        <td>${index + 1}</td>
-        <td>${item.nama}</td>
-        <td>${item.tarikh}</td>
-        <td>${item.hari}</td>
-        <td>${item.masa}</td>
-        <td>${item.bilik}</td>
-        <td>${item.tujuan}</td>
-        <td>${item.peserta}</td>
-        <td>${item.rekod}</td>
-      </tr>`;
+      html += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${item.nama}</td>
+          <td>${item.tarikh}</td>
+          <td>${item.hari}</td>
+          <td>${item.masa}</td>
+          <td>${item.bilik}</td>
+          <td>${item.tujuan}</td>
+          <td>${item.peserta}</td>
+          <td>${item.rekod}</td>
+        </tr>
+      `;
     });
 
-    html += "</tbody></table>";
+    html += `</tbody></table>`;
     jadual.innerHTML = html;
-
   } catch (err) {
-    jadual.innerHTML = "<p>❌ Ralat memuatkan data: " + err.message + "</p>";
+    jadual.innerHTML = `<p>❌ Ralat memuatkan data: ${err.message}</p>`;
   }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   loadLaporan();
 
-  document.getElementById("btn-cetak").addEventListener("click", () => {
-    window.print();
-  });
+  const btnCetak = document.getElementById("btn-cetak");
+  if (btnCetak) {
+    btnCetak.addEventListener("click", () => window.print());
+  }
 });
