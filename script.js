@@ -56,9 +56,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
   .then(response => {
     const output = document.getElementById("output");
     output.style.display = "block";
-    output.textContent = "✅ Rekod berjaya dihantar ke PocketBase!";
-
-    // Disable button selepas submit
+    output.textContent = "✅ Rekod berjaya dihantar! Sila maklum penggunaan dalam MTAQ [RASMI]";
     const submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
     submitBtn.textContent = "Rekod Telah Dihantar ✅";
