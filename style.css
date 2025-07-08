@@ -1,3 +1,4 @@
+/* ===== GAYA ASAS ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -18,12 +19,45 @@ header {
 
 main {
   padding: 20px;
-  max-width: 900px;
+  max-width: 700px;
   margin: auto;
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+input, select, textarea, button {
+  padding: 10px;
+  margin-top: 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 20px;
+  background: #10b981;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #059669;
 }
 
 footer {
@@ -34,108 +68,82 @@ footer {
   background: #d1fae5;
 }
 
-.laporan-container {
-  padding: 20px;
-}
-
-.tajuk-laporan {
-  margin: 20px 0;
-  font-size: 22px;
-  color: #065f46;
-}
-
-/* Jadual */
-table {
-  width: 100%;
-  border-collapse: collapse;
+.success-message {
   margin-top: 20px;
-}
-
-thead {
-  background-color: #bbf7d0;
-}
-
-th, td {
-  border: 1px solid #a7f3d0;
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-}
-
-th {
-  background-color: #a7f3d0;
+  padding: 15px;
+  background-color: #d1fae5;
   color: #065f46;
-  font-weight: bold;
-}
-
-/* Cetak */
-.print-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #0ea5e9;
-  color: white;
-  border: none;
+  border: 1px solid #10b981;
   border-radius: 6px;
   font-weight: bold;
-  cursor: pointer;
-}
-
-.print-button:hover {
-  background: #0284c7;
-}
-
-.butang-print {
   text-align: center;
 }
 
-/* Responsive jadual */
-@media (max-width: 768px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+/* Kad */
+.kad-tempahan {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Butang navigasi */
+.navigasi-bawah {
+  margin-top: 30px;
+  text-align: center;
+}
+
+a.butang-lihat,
+a.butang-borang {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #10b981;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+a.butang-borang {
+  background: #14b8a6;
+}
+
+a.butang-lihat:hover {
+  background: #059669;
+}
+
+a.butang-borang:hover {
+  background: #0d9488;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .logo {
     width: 70px;
   }
 
-  h1.tajuk-laporan {
+  input, select, textarea, button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  h1 {
     font-size: 20px;
   }
-}
 
-/* Print view */
-@media print {
-  .print-button,
-  .butang-print,
   footer {
-    display: none !important;
-  }
-
-  body {
-    background: white;
-    color: black;
-  }
-
-  header {
-    background: white;
-    color: black;
-    box-shadow: none;
-  }
-
-  main {
-    box-shadow: none;
-    padding: 0;
-  }
-
-  table {
-    font-size: 14px;
-    page-break-inside: auto;
-  }
-
-  tr {
-    page-break-inside: avoid;
-    page-break-after: auto;
+    font-size: 12px;
   }
 }
