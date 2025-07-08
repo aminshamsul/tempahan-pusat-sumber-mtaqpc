@@ -29,6 +29,7 @@ document.getElementById("booking-form").addEventListener("submit", function(even
 
   const masaMula = to12HourFormat(document.getElementById("masaMula").value);
   const masaTamat = to12HourFormat(document.getElementById("masaTamat").value);
+  const gabungMasa = masaMula + " - " + masaTamat;
 
   const data = {
     nama: document.getElementById("nama").value,
@@ -36,23 +37,26 @@ document.getElementById("booking-form").addEventListener("submit", function(even
     bilik: document.getElementById("bilik").value,
     hari: document.getElementById("hari").value,
     tarikh: document.getElementById("tarikh").value,
-    masa: masaMula + " - " + masaTamat,
+    masa: gabungMasa,
     peserta: document.getElementById("peserta").value,
     rekod: document.getElementById("rekod").value
   };
 
-  fetch("https://v1.nocodeapi.com/aminshamsul/google_sheets/byAZzroxxheeHINn?tabId=Sheet1", {
+  fetch("https://pocketbase-server-production-ec3b.up.railway.app/api/collections/tempahan/records", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify([Object.values(data)])
+    body: JSON.stringify({ ...data })
   })
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error("Gagal hantar ke PocketBase");
+    return res.json();
+  })
   .then(response => {
     const output = document.getElementById("output");
     output.style.display = "block";
-    output.textContent = "✅ Rekod berjaya dihantar! Sila maklum penggunaan dalam MTAQ [RASMI]";
+    output.textContent = "✅ Rekod berjaya dihantar ke PocketBase!";
 
     // Disable button selepas submit
     const submitBtn = document.getElementById("submitBtn");
