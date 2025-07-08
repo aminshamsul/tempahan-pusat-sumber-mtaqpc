@@ -11,7 +11,7 @@ async function loadTempahan() {
       return;
     }
 
-    paparan.innerHTML = ""; // kosongkan sebelum paparan
+    paparan.innerHTML = "";
 
     data.items.forEach(item => {
       const kad = document.createElement("div");
