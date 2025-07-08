@@ -3,24 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Laporan Tempahan Pusat Sumber - Admin</title>
+  <title>Laporan Tempahan Pusat Sumber (Admin)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <img src="logo-mtaqpc.png" alt="Logo MTAQPC" class="logo" />
-    <h1>Laporan Tempahan Pusat Sumber (Admin)</h1>
-    <button onclick="window.print()" class="butang-cetak">🖨️ Cetak Laporan</button>
+    <h1>Laporan Tempahan - Admin</h1>
+    <button class="print-button" onclick="window.print()">🖨️ Cetak Laporan</button>
   </header>
 
   <main>
-    <div id="jadual-laporan" class="jadual-laporan">
-      ⏳ Memuatkan data tempahan...
-    </div>
-
     <div class="navigasi-bawah">
       <a href="index.html" class="butang-borang">⬅️ Kembali ke Borang</a>
     </div>
+
+    <div id="paparan-jadual"></div>
   </main>
 
   <footer>
