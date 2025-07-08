@@ -1,27 +1,26 @@
-
 async function loadLaporan() {
-  const paparan = document.getElementById("paparan-jadual");
-  paparan.innerHTML = "⏳ Memuatkan data...";
+  const jadual = document.getElementById("jadual-laporan");
 
   try {
     const res = await fetch("https://pocketbase-server-production-ec3b.up.railway.app/api/collections/tempahan/records?sort=-created");
     const data = await res.json();
 
     if (!data?.items?.length) {
-      paparan.innerHTML = "❌ Tiada rekod ditemui.";
+      jadual.innerHTML = "<p>❌ Tiada data tempahan dijumpai.</p>";
       return;
     }
 
-    let html = `<table><thead><tr>
-      <th>Nama</th>
-      <th>Tarikh</th>
-      <th>Hari</th>
-      <th>Masa</th>
-      <th>Bilik</th>
-      <th>Tujuan</th>
-      <th>Peserta</th>
-      <th>Dihantar</th>
-    </tr></thead><tbody>`;
+    // Bina jadual
+    let html = "<table><thead><tr>" +
+      "<th>Nama</th>" +
+      "<th>Tarikh</th>" +
+      "<th>Hari</th>" +
+      "<th>Masa</th>" +
+      "<th>Bilik</th>" +
+      "<th>Tujuan</th>" +
+      "<th>Peserta</th>" +
+      "<th>Rekod</th>" +
+      "</tr></thead><tbody>";
 
     data.items.forEach(item => {
       html += `<tr>
@@ -36,11 +35,11 @@ async function loadLaporan() {
       </tr>`;
     });
 
-    html += `</tbody></table>`;
-    paparan.innerHTML = html;
+    html += "</tbody></table>";
+    jadual.innerHTML = html;
 
   } catch (err) {
-    paparan.innerHTML = "❌ Ralat semasa memuatkan data: " + err.message;
+    jadual.innerHTML = "<p>❌ Ralat memuatkan data: " + err.message + "</p>";
   }
 }
 
