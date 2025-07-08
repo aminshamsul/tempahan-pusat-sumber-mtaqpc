@@ -46,6 +46,7 @@ async function loadLaporan() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadLaporan();
+
   document.getElementById("btn-cetak").addEventListener("click", () => {
     window.print();
   });
