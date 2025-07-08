@@ -1,4 +1,4 @@
-/* ===== GAYA ASAS UNTUK SEMUA ===== */
+/* ===== GAYA ASAS ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -19,7 +19,7 @@ header {
 
 main {
   padding: 20px;
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   background: white;
   border-radius: 8px;
@@ -79,7 +79,7 @@ footer {
   text-align: center;
 }
 
-/* ===== KAD TEMPAHAN (untuk index/tempahan.html) ===== */
+/* Kad */
 .kad-tempahan {
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
@@ -89,7 +89,7 @@ footer {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* ===== NAVIGASI ===== */
+/* Butang navigasi */
 .navigasi-bawah {
   margin-top: 30px;
   text-align: center;
@@ -121,71 +121,9 @@ a.butang-borang:hover {
   background: #0d9488;
 }
 
-/* ===== LAPORAN KHAS UNTUK ADMIN ===== */
-.laporan-container {
-  background: white;
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.tajuk-laporan {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.butang-print {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.print-button {
-  padding: 10px 25px;
-  background: #0ea5e9;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.print-button:hover {
-  background: #0284c7;
-}
-
-/* ===== JADUAL ===== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  padding: 10px;
-  border: 1px solid #a7f3d0;
-  text-align: left;
-  vertical-align: top;
-}
-
-thead {
-  background-color: #bbf7d0;
-}
-
-th {
-  background-color: #a7f3d0;
-  color: #065f46;
-  font-weight: bold;
-}
-
-/* ===== RESPONSIF (untuk skrin kecil) ===== */
-@media (max-width: 768px) {
-  main,
-  .laporan-container {
+/* Responsive */
+@media (max-width: 600px) {
+  main {
     padding: 15px;
     margin: 10px;
     border-radius: 0;
@@ -211,9 +149,6 @@ th {
 
   table {
     font-size: 14px;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
   }
 
   .print-button {
@@ -221,7 +156,75 @@ th {
   }
 }
 
-/* ===== CETAK: Print Styling ===== */
+/* ===== GAYA KHAS UNTUK LAPORAN ADMIN ===== */
+.laporan-container {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tajuk-laporan {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.butang-print {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.print-button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background: #0284c7;
+}
+
+/* Jadual laporan */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #bbf7d0;
+}
+
+th, td {
+  border: 1px solid #a7f3d0;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #a7f3d0;
+  color: #065f46;
+  font-weight: bold;
+}
+
+/* Skrol jadual di telefon */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* ===== CETAKAN (PRINT) ===== */
 @media print {
   .butang-print,
   footer {
@@ -230,19 +233,27 @@ th {
 
   body {
     background: white !important;
-    margin: 0 !important;
+    color: black !important;
+    margin: 0;
   }
 
   .laporan-container {
     box-shadow: none !important;
-    border: none !important;
-    margin: 0 !important;
     padding: 0 !important;
-    width: 100%;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  h1.tajuk-laporan {
+    color: black;
+    font-size: 18pt;
   }
 
   table {
     page-break-inside: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12pt;
   }
 
   tr {
@@ -256,5 +267,11 @@ th {
 
   tfoot {
     display: table-footer-group;
+  }
+
+  th, td {
+    padding: 8px;
+    border: 1px solid black;
+    color: black;
   }
 }
