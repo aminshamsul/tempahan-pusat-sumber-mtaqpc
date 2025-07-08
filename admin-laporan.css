@@ -1,0 +1,125 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+header {
+  background: #bbf7d0;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.tajuk-laporan {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.laporan-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.butang-print {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.print-button {
+  background: #10b981;
+  color: white;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.print-button:hover {
+  background: #059669;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+thead {
+  background-color: #a7f3d0;
+}
+
+th, td {
+  border: 1px solid #94e2c1;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: bold;
+  color: #065f46;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .laporan-container {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 14px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .print-button {
+    width: 100%;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #065f46;
+  background: #d1fae5;
+}
+
+/* Hide print button and footer when printing */
+@media print {
+  .butang-print,
+  footer {
+    display: none;
+  }
+
+  body {
+    background: white !important;
+    color: black;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
