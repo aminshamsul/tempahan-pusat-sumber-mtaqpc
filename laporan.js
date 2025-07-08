@@ -10,7 +10,6 @@ async function loadLaporan() {
       return;
     }
 
-    // Bina jadual dengan no bil
     let html = "<table><thead><tr>" +
       "<th>Bil</th>" +
       "<th>Nama</th>" +
@@ -48,8 +47,10 @@ async function loadLaporan() {
 window.addEventListener("DOMContentLoaded", () => {
   loadLaporan();
 
-  // Butang cetak aktif semula
-  document.getElementById("btn-cetak").addEventListener("click", () => {
-    window.print();
-  });
+  const cetakBtn = document.getElementById("btn-cetak");
+  if (cetakBtn) {
+    cetakBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
 });
