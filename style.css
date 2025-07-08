@@ -132,3 +132,21 @@ footer {
     padding: 12px;
   }
 }
+
+/* BUTANG PAUTAN */
+.butang-pautan {
+  display: inline-block;
+  background-color: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.butang-pautan:hover {
+  background-color: #059669;
+}
