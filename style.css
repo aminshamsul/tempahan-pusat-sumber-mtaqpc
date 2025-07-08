@@ -83,6 +83,38 @@ footer {
   text-align: center;
 }
 
+/* NAVIGASI BUTANG (Lihat Senarai / Kembali Borang) */
+.navigasi-bawah {
+  margin-top: 30px;
+  text-align: center;
+}
+
+a.butang-lihat,
+a.butang-borang {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #10b981;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+a.butang-borang {
+  background: #14b8a6;
+}
+
+a.butang-lihat:hover {
+  background: #059669;
+}
+
+a.butang-borang:hover {
+  background: #0d9488;
+}
+
 /* MEDIA QUERY: Untuk telefon (skrin kecil) */
 @media (max-width: 600px) {
   main {
@@ -111,42 +143,4 @@ footer {
   footer {
     font-size: 12px;
   }
-}
-
-/* KAD TEMPAHAN */
-.kad-tempahan {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* Responsive: Kad tempahan */
-@media (max-width: 600px) {
-  .kad-tempahan {
-    font-size: 14px;
-    padding: 12px;
-  }
-}
-
-/* BUTANG PAUTAN */
-.butang-pautan {
-  display: inline-block;
-  background-color: #10b981;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.butang-pautan:hover {
-  background-color: #059669;
 }
