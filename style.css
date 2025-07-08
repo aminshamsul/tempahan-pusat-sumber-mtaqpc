@@ -19,7 +19,7 @@ header {
 
 main {
   padding: 20px;
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   background: white;
   border-radius: 8px;
@@ -79,7 +79,7 @@ footer {
   text-align: center;
 }
 
-/* Kad */
+/* Kad tempahan */
 .kad-tempahan {
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
@@ -89,7 +89,7 @@ footer {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Butang navigasi */
+/* Navigasi */
 .navigasi-bawah {
   margin-top: 30px;
   text-align: center;
@@ -121,42 +121,23 @@ a.butang-borang:hover {
   background: #0d9488;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  main {
-    padding: 15px;
-    margin: 10px;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .logo {
-    width: 70px;
-  }
-
-  input, select, textarea, button {
-    font-size: 15px;
-    padding: 8px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-
-  table {
-    font-size: 14px;
-  }
-
-  .print-button {
-    width: 100%;
-  }
+/* Gaya laporan admin */
+.laporan-container {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* ===== GAYA TAMBAHAN UNTUK ADMIN-LAPORAN ===== */
+.tajuk-laporan {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -180,7 +161,7 @@ th {
   font-weight: bold;
 }
 
-/* Jadual scroll pada telefon */
+/* Jadual scroll untuk telefon */
 @media (max-width: 768px) {
   table {
     display: block;
@@ -189,7 +170,6 @@ th {
   }
 }
 
-/* Butang cetak */
 .print-button {
   margin-top: 15px;
   padding: 10px 20px;
@@ -204,3 +184,14 @@ th {
 .print-button:hover {
   background: #0284c7;
 }
+
+/* Cetakan */
+@media print {
+  .butang-print, footer {
+    display: none;
+  }
+
+  body {
+    background: white !important;
+    margin: 0;
+    padding
