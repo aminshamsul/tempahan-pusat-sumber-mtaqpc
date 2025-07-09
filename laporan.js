@@ -2,12 +2,6 @@ async function loadLaporan() {
   const jadual = document.getElementById("jadual-laporan");
   const tarikhCetak = document.getElementById("tarikh-cetak");
 
-  // Papar tarikh & masa semasa
-  const now = new Date();
-  const tarikh = now.toLocaleDateString('ms-MY');
-  const masa = now.toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit', hour12: true });
-  tarikhCetak.innerHTML = `<p class="tarikh-masa-cetak">Cetakan pada: ${tarikh}, ${masa}</p>`;
-
   try {
     const res = await fetch("https://pocketbase-server-production-ec3b.up.railway.app/api/collections/tempahan/records?sort=-created");
     const data = await res.json();
@@ -17,7 +11,15 @@ async function loadLaporan() {
       return;
     }
 
-    // Bina jadual dengan Bil
+    // Tarikh & masa cetakan
+    const now = new Date();
+    const tarikh = now.toLocaleDateString('ms-MY');
+    const masa = now.toLocaleTimeString('ms-MY', {
+      hour: '2-digit', minute: '2-digit', hour12: true
+    });
+    tarikhCetak.innerHTML = `Cetakan pada: ${tarikh}, ${masa}`;
+
+    // Bina jadual
     let html = "<table><thead><tr>" +
       "<th>Bil</th>" +
       "<th>Nama</th>" +
