@@ -1,15 +1,12 @@
 async function loadLaporan() {
   const jadual = document.getElementById("jadual-laporan");
-  const maklumat = document.getElementById("maklumat-cetakan");
+  const tarikhCetak = document.getElementById("tarikh-cetak");
 
-  // Papar hari, tarikh & masa dengan format AM/PM
-  const sekarang = new Date();
-  const hariList = ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"];
-  const hari = hariList[sekarang.getDay()];
-  const tarikh = sekarang.toLocaleDateString('ms-MY');
-  const masa = sekarang.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-
-  maklumat.innerHTML = `Tarikh cetakan <u>${hari}</u>, <u>${tarikh}</u> jam <u>${masa}</u>`;
+  // Papar tarikh & masa semasa
+  const now = new Date();
+  const tarikh = now.toLocaleDateString('ms-MY');
+  const masa = now.toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit', hour12: true });
+  tarikhCetak.innerHTML = `<p class="tarikh-masa-cetak">Cetakan pada: ${tarikh}, ${masa}</p>`;
 
   try {
     const res = await fetch("https://pocketbase-server-production-ec3b.up.railway.app/api/collections/tempahan/records?sort=-created");
