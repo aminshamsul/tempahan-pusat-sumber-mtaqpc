@@ -11,10 +11,10 @@ async function loadLaporan() {
       return;
     }
 
-    // Tarikh & masa cetakan
+    // Tarikh & masa cetakan (AM/PM)
     const now = new Date();
     const tarikh = now.toLocaleDateString('ms-MY');
-    const masa = now.toLocaleTimeString('ms-MY', {
+    const masa = now.toLocaleTimeString('en-US', {
       hour: '2-digit', minute: '2-digit', hour12: true
     });
     tarikhCetak.innerHTML = `Cetakan pada: ${tarikh}, ${masa}`;
