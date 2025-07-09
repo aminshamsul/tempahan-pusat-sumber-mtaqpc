@@ -53,6 +53,14 @@ header {
   background: #059669;
 }
 
+#tarikh-cetak {
+  text-align: right;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+  font-family: "Arial", sans-serif;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -102,7 +110,7 @@ footer {
   background: #d1fae5;
 }
 
-/* Hide print button and footer when printing */
+/* Cetakan */
 @media print {
   .butang-print,
   footer {
@@ -114,6 +122,16 @@ footer {
     color: black;
   }
 
+  #tarikh-cetak {
+    display: block;
+    font-size: 11px;
+    color: #000;
+    font-family: "Times New Roman", serif;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
   table {
     page-break-inside: auto;
   }
@@ -121,5 +139,14 @@ footer {
   tr {
     page-break-inside: avoid;
     page-break-after: auto;
+  }
+
+  @page {
+    margin: 20mm;
+    @bottom-right {
+      content: "Muka surat " counter(page);
+      font-size: 10pt;
+      font-family: "Times New Roman", serif;
+    }
   }
 }
